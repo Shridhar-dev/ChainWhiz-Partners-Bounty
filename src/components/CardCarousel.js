@@ -10,15 +10,30 @@ function CardCarousel({data}) {
   const classes = useStyles();
 
   return (
-    <Carousel className={classes.carousel}>
+    <Carousel 
+      className={classes.carousel}
+      indicatorIconButtonProps={{
+        style: {
+            color: '#DCDCDC',
+            opacity:0.6,
+            margin:"0rem 0.5rem"
+        }
+      }}
+      activeIndicatorIconButtonProps={{
+          style: {
+              opacity:1 
+          }
+      }}
+      
+    >
       {
-        data.map((slide,index)=>{
+        data.map((slide,i)=>{
           return(
-            <Grid container spacing={8}>
+            <Grid container spacing={8} key={i}>
               {
-                slide.map((card,index)=>{
+                slide.map((card,j)=>{
                   return(
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} key={j}>
                       <Card data={card}/>
                     </Grid>
                   )   

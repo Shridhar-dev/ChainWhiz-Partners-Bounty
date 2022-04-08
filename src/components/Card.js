@@ -1,4 +1,4 @@
-import { Grid,CardMedia,Typography } from '@mui/material'
+import { Grid,Typography } from '@mui/material'
 import React from 'react'
 import styles from './style'
 import { makeStyles  } from '@mui/styles';
@@ -14,15 +14,13 @@ function Card({data}) {
   const classes = useStyles();
   return (
     <Grid container>
-      <Grid item xs={12}>
-        
-        <div style={{backgroundImage:`url(${data.banner})`}} className={classes.banner}>
-</div>
+      <Grid item xs={12} className={classes.bannerOuter}>
+        <div style={{backgroundImage:`url(${data.banner})`}} className={classes.banner}></div>
       </Grid>
       
-      <Grid item xs={12} style={{position:'relative'}}>
+      <Grid item xs={12} className={classes.cardContent} >
         <Box className={classes.partnerImage}>
-          <img src={data.image} />
+          <img src={data.image} alt="partner-logo"/>
         </Box>
         <Typography variant="h4" component="h4" mt={5} className={classes.title}>
           {data.name}
@@ -30,15 +28,15 @@ function Card({data}) {
         <Typography variant="p" component="p" mt={4} className={classes.para}>
           {data.description}
         </Typography>
-        <Box mt={5} sx={{ justifyContent: 'center'}}>
+        <Box mt={5} className={classes.footerIcons}>
           <a href={data.websiteLink}>
-            <img src={Website} className={classes.socials}/>
+            <img src={Website} className={classes.socials} alt="globe-icon"/>
           </a>
           <a href={data.discordLink}>
-            <img src={Discord} className={classes.socials}/>
+            <img src={Discord} className={classes.socials} alt="discord-icon"/>
           </a>
           <a href={data.twitterLink}>
-            <img src={Twitter} className={classes.socials}/>
+            <img src={Twitter} className={classes.socials} alt="twitter-icon"/>
           </a>
         </Box>
       </Grid>
