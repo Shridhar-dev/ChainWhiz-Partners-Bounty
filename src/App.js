@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { Container, Grid, Typography} from '@mui/material';
+import { makeStyles  } from '@mui/styles';
+import style from './style';
+import CardCarousel from './components/CardCarousel';
+import data from './data';
 
+const useStyles = makeStyles(style)
 function App() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="5xl" className={classes.section}>
+      <Typography variant="h3" component="h3" className={classes.heading}>
+        Our <span className={classes.heading__color}>Partners</span>
+      </Typography>
+      <CardCarousel data={data}/>
+    </Container>
   );
 }
 
